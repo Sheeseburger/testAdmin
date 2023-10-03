@@ -7,6 +7,7 @@ Activate it
 
 Update pip and download requirements
 > pip install --upgrade pip
+
 > pip install -r requirements-dev.txt
 
 Make db migration. Can be skipped, if DB uri wasn't changed.
