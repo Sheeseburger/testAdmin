@@ -1,6 +1,5 @@
 import os
 from flask import Flask, render_template
-from flask_cors import CORS
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
 
@@ -12,7 +11,6 @@ from data.testdata import create_default_data
 def create_app():
     app = Flask(__name__)
     api = Api(app)
-    CORS(app)
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
    
