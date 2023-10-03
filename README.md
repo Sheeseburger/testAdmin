@@ -18,6 +18,7 @@ Make db migration. Can be skipped, if DB uri wasn't changed.
 > flask db upgrade
 
 For adding test data set CREATE_DEFAULT_DATA=True in .flaskenv.
+
 Run flask
 > flask run
 
