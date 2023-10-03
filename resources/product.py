@@ -1,6 +1,6 @@
 from flask_restful import Resource
 from flask_jwt_extended import jwt_required
-from flask import request, jsonify
+from flask import request
 from schemas.product import ProductSchema
 from models.product import Product
 from extensions import db
@@ -37,15 +37,15 @@ class ProductResource(Resource):
     def patch(self):
         product_id = request.json.get('id')
         if not product_id:
-            return jsonify({"message": "Product ID is required"}), 400
+            return {"message": "Product ID is required"}, 400
 
         product = Product.query.filter_by(id=product_id).first()
         if not product:
-            return jsonify({"message:":"No user with this id"}), 400
+            return {"message:":"No user with this id"}, 400
         updated_data = request.json.get('data')
 
         if not updated_data:
-            return jsonify({"message": "Updated data is required"}), 400
+            return {"message": "Updated data is required"}, 400
         for key, value in updated_data.items():
             setattr(product, key, value)
 
